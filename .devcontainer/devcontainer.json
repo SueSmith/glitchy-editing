@@ -39,6 +39,18 @@
         "dbaeumer.vscode-eslint"
       ],
       "settings": {
+        "tasks":
+        {
+	        "version": "2.0.0",
+	        "tasks": [
+		        {
+			      "type": "Live Preview",
+			      "workspacePath": "${localWorkspaceFolder}",
+			      "problemMatcher": [],
+			      "label": "open"
+		        }
+	        ]
+        },
         "files.exclude": {
           "package-lock.json": true,
           "node_modules/": true
@@ -80,6 +92,13 @@
               "singleInstance": true,
               "command": "bash _helpers/run.sh",
               "tooltip": "Build and run your site"
+            },
+            {
+              "name": "🪟 Open",
+              "singleInstance": true,
+              "useVsCodeApi": true,
+              "command": "workbench.action.tasks.runTask",
+              "args": "open"
             },
             {
               "name": "🔗 Share",
