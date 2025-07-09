@@ -1,6 +1,5 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
-
 {
   "name": "Ubuntu",
   "image": "mcr.microsoft.com/devcontainers/base:noble",
@@ -21,6 +20,10 @@
       "label": "Site",
       "onAutoForward": "openPreview"
     },
+    "5500-5510": {
+      "label": "Site",
+      "onAutoForward": "openPreview"
+    },
     "8080-8090": {
       "label": "Site",
       "onAutoForward": "openPreview"
@@ -36,20 +39,18 @@
     "vscode": {
       "extensions": [
         "jkearins.action-buttons-ext@0.1.1",
-        "dbaeumer.vscode-eslint"
+        "dbaeumer.vscode-eslint",
+        "ritwickdey.LiveServer"
       ],
       "settings": {
-        "tasks":
-        {
-	        "version": "2.0.0",
-	        "tasks": [
-		        {
-			      "type": "Live Preview",
-			      "workspacePath": "${localWorkspaceFolder}",
-			      "problemMatcher": [],
-			      "label": "open"
-		        }
-	        ]
+        "tasks": {
+          "version": "2.0.0",
+          "tasks": [
+            {
+              "label": "open",
+              "command": "${command:extension.liveServer.goOnline}"
+            }
+          ]
         },
         "files.exclude": {
           "package-lock.json": true,
@@ -57,6 +58,8 @@
         },
         "chat.sendElementsToChat.enabled": false,
         "editor.minimap.enabled": false,
+        "liveServer.settings.NoBrowser": true,
+      	"liveServer.settings.donotShowInfoMsg": true,
         "actionButtons": {
           "commands": [
             {
@@ -94,11 +97,14 @@
               "tooltip": "Build and run your site"
             },
             {
-              "name": "🪟 Open",
+              "name": "💞 Open",
               "singleInstance": true,
               "useVsCodeApi": true,
               "command": "workbench.action.tasks.runTask",
-              "args": "open"
+              "args": [
+                "open"
+              ],
+              "tooltip": "Open your site"
             },
             {
               "name": "🔗 Share",
