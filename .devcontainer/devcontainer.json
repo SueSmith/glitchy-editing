@@ -83,7 +83,7 @@
             {
               "name": "🚀 Publish",
               "singleInstance": true,
-              "command": "npm run deploy",
+              "command": "bash _helpers/publish.sh",
               "tooltip": "Publish to GitHub Pages"
             }
           ],

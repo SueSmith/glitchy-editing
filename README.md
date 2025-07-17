@@ -26,6 +26,8 @@ Give the codespace a minute or two to start up – it'll attempt to automaticall
 > 🔗 Share your dev address at the codespace port
 > 
 > 🚧 Build your site for production
+>
+> 🚀 Publish your site to GitHub Pages
 
 ## How this project works
 
@@ -44,7 +46,6 @@ You may need to tweak the scripts to suit your project – the defaults are desi
 * Hide some files and folders to make the file tree a bit less cluttered
 * Hide the minimap and chat prompts
 * Specify the buttons to include at the bottom
-* _TODO: Add publish button to deploy to your chosen platform_
 
 The project contains an example Vite website but you can just delete the files and add your own – make sure you also update the `package.json` to suit your chosen framework.
 
@@ -54,16 +55,11 @@ The buttons along the bottom of the editor are configured courtesy of this great
 
 ## Publish your site
 
-The default project contents will dump your website files in `docs/` when you run the build command, which lets you deploy to GitHub Pages:
+The default project contents will dump your website files in `dist/` when you run the build command, which will deploy to GitHub Pages when you click the 🚀 **Publish** button:
 
-![Pages settings](https://github.com/user-attachments/assets/21e853ee-b59e-43ad-8b3e-ce10eef455c4)
+* It'll be at `your-username.github.io/your-repo`
 
-* Navigate to your repo **Settings**
-* In **Pages** choose **Deploy from a branch**
-* Select `main` and the `/docs` folder
-* Click **Save** and hopefully GitHub will deploy your site!
-  * It'll be at `your-username.github.io/your-repo`
-* When you commit to your branch your changes will automatically deploy
+The script will attempt to build your site, but if it doesn't have a build command it'll instead copy the contents into the `dist` folder and set that as the source for the `gh-pages` command.
 
 ## Save your edits to GitHub
 
