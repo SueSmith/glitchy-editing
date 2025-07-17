@@ -8,8 +8,7 @@ export default defineConfig(async ({ command, mode }) => {
         input: {
           main: 'index.html'
         },
-      },
-      outDir: "docs"
+      }
     }
   }
 });
