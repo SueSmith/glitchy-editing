@@ -1,0 +1,96 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+  "name": "Ubuntu",
+  "image": "mcr.microsoft.com/devcontainers/base:noble",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "portsAttributes": {
+    "3000-9000": {
+      "label": "Site",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "updateContentCommand": "npm install",
+  "postAttachCommand": {
+    "guide": "bash _helpers/welcome.sh",
+    "start": "npm run start || npx --yes serve"
+  },
+  "waitFor": "updateContentCommand",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "jkearins.action-buttons-ext@0.1.1",
+        "dbaeumer.vscode-eslint"
+      ],
+      "settings": {
+        "files.exclude": {
+          "package-lock.json": true,
+          "node_modules/": true
+        },
+        "chat.sendElementsToChat.enabled": false,
+        "editor.minimap.enabled": false,
+        "actionButtons": {
+          "commands": [
+            {
+              "name": "🌈 Prettify",
+              "singleInstance": true,
+              "useVsCodeApi": true,
+              "command": "editor.action.formatDocument",
+              "tooltip": "Tidy up your code"
+            },
+            {
+              "name": "🪗 Wrap",
+              "singleInstance": true,
+              "useVsCodeApi": true,
+              "command": "editor.action.toggleWordWrap",
+              "tooltip": "Toggle word wrap"
+            },
+            {
+              "name": "💻 Terminal",
+              "singleInstance": true,
+              "useVsCodeApi": true,
+              "command": "workbench.action.terminal.toggleTerminal",
+              "tooltip": "Open a terminal"
+            },
+            {
+              "name": "🔎 Split",
+              "singleInstance": true,
+              "useVsCodeApi": true,
+              "command": "workbench.action.moveEditorToNextGroup",
+              "tooltip": "Move your active tab to the side"
+            },
+            {
+              "name": "🎡 Run",
+              "singleInstance": true,
+              "command": "bash _helpers/run.sh",
+              "tooltip": "Build and run your site"
+            },
+            {
+              "name": "🔗 Share",
+              "singleInstance": true,
+              "command": "bash _helpers/share.sh",
+              "tooltip": "Grab a link to share your draft site"
+            },
+            {
+              "name": "🚧 Build",
+              "singleInstance": true,
+              "command": "bash _helpers/build.sh",
+              "tooltip": "Build your site for deployment"
+            },
+            {
+              "name": "🚀 Publish",
+              "singleInstance": true,
+              "command": "npm run deploy",
+              "tooltip": "Publish to GitHub Pages"
+            }
+          ],
+          "defaultColor": "none",
+          "reloadButton": null
+        }
+      }
+    }
+  }
+}
