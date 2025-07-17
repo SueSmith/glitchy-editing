@@ -16,34 +16,22 @@
   "updateContentCommand": "npm install",
   "postAttachCommand": {
     "guide": "bash _helpers/welcome.sh",
-    "start": "npm run start"
+    "start": "npm run start || npx --yes serve"
   },
   "waitFor": "updateContentCommand",
   "customizations": {
     "vscode": {
       "extensions": [
         "jkearins.action-buttons-ext@0.1.1",
-        "dbaeumer.vscode-eslint",
-        "ritwickdey.LiveServer"
+        "dbaeumer.vscode-eslint"
       ],
       "settings": {
-        "tasks": {
-          "version": "2.0.0",
-          "tasks": [
-            {
-              "label": "open",
-              "command": "${command:extension.liveServer.goOnline}"
-            }
-          ]
-        },
         "files.exclude": {
           "package-lock.json": true,
           "node_modules/": true
         },
         "chat.sendElementsToChat.enabled": false,
         "editor.minimap.enabled": false,
-        "liveServer.settings.NoBrowser": true,
-      	"liveServer.settings.donotShowInfoMsg": true,
         "actionButtons": {
           "commands": [
             {
@@ -81,16 +69,6 @@
               "tooltip": "Build and run your site"
             },
             {
-              "name": "🏠 Open",
-              "singleInstance": true,
-              "useVsCodeApi": true,
-              "command": "workbench.action.tasks.runTask",
-              "args": [
-                "open"
-              ],
-              "tooltip": "Open your site"
-            },
-            {
               "name": "🔗 Share",
               "singleInstance": true,
               "command": "bash _helpers/share.sh",
@@ -101,6 +79,12 @@
               "singleInstance": true,
               "command": "bash _helpers/build.sh",
               "tooltip": "Build your site for deployment"
+            },
+            {
+              "name": "🚀 Publish",
+              "singleInstance": true,
+              "command": "npm run deploy",
+              "tooltip": "Publish to GitHub Pages"
             }
           ],
           "defaultColor": "none",
