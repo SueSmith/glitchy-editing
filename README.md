@@ -2,7 +2,7 @@
 
 A devcontainer config to create an editing experience that's a bit like Glitch in a GitHub Codespace.
 
-![editor](https://github.com/user-attachments/assets/abe6dd24-b77b-4c4b-a653-dc5003984b8f)
+![editing](https://github.com/user-attachments/assets/db700374-86da-49a2-9988-1d817eb963e7)
 
 * Click **Use this template** and **Create a new repository**
 * In your repo, open the site in a codespace by clicking **Code** > **Codespaces** and creating a new codespace on your main branch. 
